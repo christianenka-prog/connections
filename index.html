@@ -22,10 +22,10 @@
     --mono: 'DM Mono', monospace;
   }
 
-  body { background:var(--bg); color:var(--text); font-family:var(--font); min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:0 1rem 4rem; }
+  body { background:var(--bg); color:var(--text); font-family:var(--font); min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:0 1.5rem 5rem; }
 
   /* TOP BAR */
-  .topbar { width:100%; max-width:600px; display:flex; align-items:center; justify-content:center; padding:1.2rem 0 1rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem; position:relative; }
+  .topbar { width:100%; max-width:600px; display:flex; align-items:center; justify-content:center; padding:1.5rem 0 1.2rem; border-bottom:1px solid var(--border); margin-bottom:2rem; position:relative; }
   .topbar h1 { font-size:22px; font-weight:800; letter-spacing:.02em; text-transform:uppercase; }
   .topbar .brain { font-size:20px; margin-right:8px; }
 
@@ -33,9 +33,9 @@
   .screen.active { display:block; }
 
   /* LOGIN */
-  #loginScreen { text-align:center; padding-top:2rem; }
-  #loginScreen .sub { font-size:17px; font-weight:700; margin-bottom:6px; }
-  #loginScreen p { font-size:15px; color:var(--muted); margin-bottom:2rem; line-height:1.5; }
+  #loginScreen { text-align:center; padding-top:3rem; }
+  #loginScreen .sub { font-size:19px; font-weight:700; margin-bottom:6px; }
+  #loginScreen p { font-size:15px; color:var(--muted); margin-bottom:2.5rem; line-height:1.5; }
   .input-row { display:flex; gap:8px; max-width:360px; margin:0 auto 1rem; }
   input[type=text] { flex:1; padding:12px 16px; border-radius:999px; border:2px solid var(--border); background:#fff; color:var(--text); font-family:var(--font); font-size:16px; outline:none; transition:border-color .15s; }
   input[type=text]:focus { border-color:var(--accent); }
@@ -53,7 +53,7 @@
   /* ARCHIVE */
   #archiveScreen { padding-top:1rem; }
   #archiveScreen h2 { font-size:22px; font-weight:800; margin-bottom:6px; }
-  #archiveScreen .arch-sub { font-size:14px; color:var(--muted); margin-bottom:1.5rem; }
+  #archiveScreen .arch-sub { font-size:14px; color:var(--muted); margin-bottom:2rem; }
   .archive-list { display:flex; flex-direction:column; gap:8px; margin-bottom:2rem; }
   .archive-item { padding:16px 18px; border-radius:var(--r); border:1px solid var(--border); cursor:pointer; transition:all .15s; display:flex; justify-content:space-between; align-items:center; }
   .archive-item:hover { background:#fafafa; border-color:#bbb; }
@@ -68,31 +68,29 @@
   #doneScreen p { font-size:16px; color:var(--muted); margin-bottom:2rem; }
 
   /* GAME */
-  .game-header { display:flex; justify-content:space-between; align-items:center; padding-bottom:1rem; border-bottom:1px solid var(--border); margin-bottom:1.2rem; }
+  .game-header { display:flex; justify-content:space-between; align-items:center; padding-bottom:1.2rem; border-bottom:1px solid var(--border); margin-bottom:1.8rem; }
   .game-title { font-size:16px; font-weight:700; color:var(--muted); }
   .timer { font-family:var(--mono); font-size:18px; font-weight:500; }
   .archive-badge { font-size:11px; background:#f0f0f0; color:var(--muted); padding:3px 8px; border-radius:20px; font-weight:600; margin-left:6px; }
 
-  .mistakes { display:flex; align-items:center; gap:8px; margin-bottom:1rem; justify-content:center; }
+  .mistakes { display:flex; align-items:center; gap:8px; margin-bottom:1.4rem; justify-content:center; }
   .mistakes span { font-size:15px; color:var(--muted); font-weight:600; }
-  .dot { width:13px; height:13px; border-radius:50%; background:var(--text); transition:all .3s; }
-  .dot.used { background:#d8d8d8; transform:scale(.75); }
 
   /* Solved cards */
-  .solved-area { display:flex; flex-direction:column; gap:6px; margin-bottom:6px; }
-  .solved-card { border-radius:var(--r); padding:0 16px; animation:popIn .35s ease forwards; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:72px; }
+  .solved-area { display:flex; flex-direction:column; gap:8px; margin-bottom:8px; }
+  .solved-card { border-radius:var(--r); padding:4px 16px; animation:popIn .35s ease forwards; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:72px; }
   .solved-card .s-label { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:2px; color:rgba(0,0,0,0.5); }
-  .solved-card .s-cat { font-size:17px; font-weight:800; color:#1a1a1a; text-align:center; }
+  .solved-card .s-cat { font-size:18px; font-weight:800; color:#1a1a1a; text-align:center; }
   .solved-card .s-words { font-size:13px; margin-top:3px; color:rgba(0,0,0,0.55); text-align:center; font-weight:500; }
   @keyframes popIn { 0%{opacity:0;transform:scale(.95)} 60%{transform:scale(1.02)} 100%{opacity:1;transform:scale(1)} }
 
   /* Grid */
-  .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:16px; }
+  .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:20px; }
   .tile {
     background:var(--tile-bg);
     border:none;
     border-radius:var(--r);
-    padding:14px 4px;
+    padding:18px 4px;
     text-align:center;
     font-size:17px;
     font-weight:800;
@@ -101,7 +99,7 @@
     cursor:pointer;
     user-select:none;
     transition:background .1s, transform .1s;
-    min-height:80px;
+    min-height:90px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -113,35 +111,45 @@
   .tile.shake { animation:shake .4s ease; }
   @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
 
-  .msg { font-size:15px; color:var(--muted); text-align:center; min-height:20px; margin-bottom:12px; font-weight:600; }
+  .msg { font-size:15px; color:var(--muted); text-align:center; min-height:24px; margin-bottom:16px; font-weight:600; }
   .game-controls { display:flex; gap:10px; justify-content:center; }
 
   /* RESULT */
-  #resultScreen { text-align:center; padding-top:2.5rem; }
-  #resultScreen h2 { font-size:28px; font-weight:800; margin-bottom:8px; }
-  .result-sub { font-size:16px; color:var(--muted); margin-bottom:2rem; font-weight:500; }
-  .stat-row { display:flex; justify-content:center; gap:3rem; margin-bottom:2.5rem; }
-  .stat-val { font-family:var(--mono); font-size:36px; font-weight:500; }
-  .stat-label { font-size:12px; color:var(--muted); margin-top:4px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; }
-  .lb-title { font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; margin-bottom:12px; }
-  table.lb { width:100%; border-collapse:collapse; }
-  table.lb td { padding:12px 4px; font-size:15px; border-bottom:1px solid var(--border); }
-  table.lb tr:last-child td { border-bottom:none; }
-  .rank { color:var(--muted); font-family:var(--mono); width:28px; }
-  .lname { font-weight:700; text-align:left; }
-  .ltime { font-family:var(--mono); text-align:right; }
-  .lfeil { color:var(--muted); font-size:13px; text-align:right; padding-left:12px; font-weight:500; }
-  tr.me td { color:var(--accent); font-weight:800; }
-  .play-again-btn { margin-top:1.5rem; display:inline-block; font-size:14px; color:var(--muted); background:none; border:none; cursor:pointer; text-decoration:underline; font-family:var(--font); }
+  #resultScreen { padding-top:3rem; }
+  #resultScreen h2 { font-size:26px; font-weight:800; margin-bottom:4px; text-align:center; }
+  .result-sub { font-size:15px; color:var(--muted); margin-bottom:2rem; font-weight:500; text-align:center; }
+  
+  .stat-row { display:flex; justify-content:center; gap:0; margin-bottom:2.5rem; border:1.5px solid var(--border); border-radius:var(--r); overflow:hidden; }
+  .stat { flex:1; padding:1.4rem 0.5rem; text-align:center; border-right:1px solid var(--border); }
+  .stat:last-child { border-right:none; }
+  .stat-val { font-family:var(--mono); font-size:30px; font-weight:700; }
+  .stat-label { font-size:11px; color:var(--muted); margin-top:3px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; }
+
+  .lb-title { font-size:11px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; margin-bottom:0; }
+  .lb-wrap { border:1.5px solid var(--border); border-radius:var(--r); overflow:hidden; margin-bottom:2rem; }
+  .lb-head { display:grid; grid-template-columns:36px 1fr 80px 60px; padding:8px 14px; background:#f9f9f9; border-bottom:1px solid var(--border); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); }
+  .lb-row { display:grid; grid-template-columns:36px 1fr 80px 60px; padding:15px 14px; border-bottom:1px solid var(--border); font-size:14px; align-items:center; transition:background .1s; }
+  .lb-row:last-child { border-bottom:none; }
+  .lb-row:hover { background:#fafafa; }
+  .lb-row.me { background:#fffbea; font-weight:700; }
+  .lb-row.me .lb-rank { color:var(--accent); }
+  .lb-rank { font-family:var(--mono); font-size:13px; color:var(--muted); }
+  .lb-rank.top1 { color:#c9a227; font-weight:800; }
+  .lb-rank.top2 { color:#888; font-weight:800; }
+  .lb-rank.top3 { color:#a0673a; font-weight:800; }
+  .lb-name { font-weight:600; }
+  .lb-time { font-family:var(--mono); font-size:13px; color:var(--muted); }
+  .lb-feil { font-size:13px; color:var(--muted); text-align:right; }
+  .play-again-btn { display:block; text-align:center; font-size:14px; color:var(--muted); background:none; border:none; cursor:pointer; text-decoration:underline; font-family:var(--font); margin-top:0.5rem; }
 
   /* ADMIN */
   #adminOverlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:100; align-items:center; justify-content:center; }
   #adminOverlay.open { display:flex; }
   #adminBox { background:#fff; border-radius:12px; padding:2rem; width:100%; max-width:660px; max-height:90vh; overflow-y:auto; position:relative; }
   #adminBox h2 { font-size:20px; font-weight:800; margin-bottom:4px; }
-  #adminBox .admin-sub { font-size:13px; color:var(--muted); margin-bottom:1.5rem; }
+  #adminBox .admin-sub { font-size:13px; color:var(--muted); margin-bottom:2rem; }
   .admin-close { position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:22px; cursor:pointer; color:var(--muted); }
-  .admin-section { margin-bottom:1.5rem; }
+  .admin-section { margin-bottom:2rem; }
   .admin-section label { display:block; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-bottom:6px; }
   .admin-section input[type=text], .admin-section input[type=password] { width:100%; padding:10px 14px; border-radius:var(--r); border:1.5px solid var(--border); font-family:var(--font); font-size:15px; outline:none; transition:border-color .15s; box-sizing:border-box; }
   .admin-section input:focus { border-color:var(--accent); }
@@ -154,6 +162,19 @@
   .admin-err { font-size:13px; color:#d0021b; margin-top:6px; min-height:16px; }
   #codeOutput { width:100%; font-family:var(--mono); font-size:11px; padding:12px; border-radius:var(--r); border:1.5px solid var(--border); background:#f9f9f9; min-height:100px; resize:vertical; outline:none; box-sizing:border-box; }
   .copy-success { font-size:13px; color:#2d6a1f; margin-top:6px; min-height:16px; font-weight:600; }
+  /* SUMMARY */
+  #summaryScreen { text-align:center; padding-top:3.5rem; }
+  #summaryScreen h2 { font-size:28px; font-weight:800; margin-bottom:6px; }
+  .summary-sub { font-size:16px; color:var(--muted); margin-bottom:2rem; font-weight:500; }
+  .emoji-grid { display:flex; flex-direction:column; gap:6px; align-items:center; margin-bottom:2.5rem; }
+  .emoji-row { display:flex; gap:4px; }
+  .emoji-row span { font-size:28px; }
+  .summary-groups { display:flex; flex-direction:column; gap:8px; margin-bottom:2.5rem; text-align:left; }
+  .summary-card { border-radius:var(--r); padding:14px 18px; }
+  .summary-card .sc-label { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(0,0,0,0.5); margin-bottom:2px; }
+  .summary-card .sc-cat { font-size:17px; font-weight:800; color:#1a1a1a; }
+  .summary-card .sc-words { font-size:13px; color:rgba(0,0,0,0.55); margin-top:3px; font-weight:500; }
+
   #previewSection { margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid var(--border); }
   #previewSection h3 { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-bottom:10px; }
   .preview-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-bottom:10px; }
@@ -206,7 +227,7 @@
     <span class="game-title" id="playerLabel"></span>
     <span class="timer" id="timerEl">00:00</span>
   </div>
-  <div class="mistakes"><span>Feil igjen:</span><div class="dot" id="d1"></div><div class="dot" id="d2"></div><div class="dot" id="d3"></div><div class="dot" id="d4"></div></div>
+  <div class="mistakes"><span id="feilTeller">Feil: 0</span></div>
   <div class="solved-area" id="solvedArea"></div>
   <div class="grid" id="grid"></div>
   <div class="msg" id="msg"></div>
@@ -215,6 +236,16 @@
     <button class="btn ghost" onclick="clearSel()">Tøm</button>
     <button class="btn" id="guessBtn" onclick="doGuess()" disabled>Gjett</button>
   </div>
+</div>
+
+
+<!-- SUMMARY -->
+<div id="summaryScreen" class="screen">
+  <h2 id="summaryTitle"></h2>
+  <p class="summary-sub" id="summarySub"></p>
+  <div class="emoji-grid" id="emojiGrid"></div>
+  <div class="summary-groups" id="summaryGroups"></div>
+  <button class="btn" onclick="showResult()">Se resultatlisten →</button>
 </div>
 
 <!-- RESULT -->
@@ -226,14 +257,19 @@
     <div class="stat"><div class="stat-val" id="rFeil">—</div><div class="stat-label">Feil</div></div>
     <div class="stat"><div class="stat-val" id="rRank">—</div><div class="stat-label">Plass</div></div>
   </div>
-  <div class="lb-title" id="lbTitle">Resultatliste</div>
-  <div id="leaderboard"></div>
+  <div id="lbSection">
+    <div class="lb-title" id="lbTitle" style="margin-bottom:8px">Resultatliste</div>
+    <div class="lb-wrap">
+      <div class="lb-head"><span>#</span><span>Navn</span><span>Tid</span><span style="text-align:right">Feil</span></div>
+      <div id="leaderboard"></div>
+    </div>
+  </div>
   <button class="play-again-btn" onclick="show('archiveScreen')">📂 Spill en gammel nøtt</button>
 </div>
 
 <script>
 const ACTIVE_PUZZLE = {
-  id: 'nott_2025w19b',
+  id: 'nott_2025w19f',
   title: 'Ukens nøtt',
   groups: [
     {bg:'#f9df6d', label:'Lett',      cat:'Slang for penger',              words:['GRYN','SPENN','LAPPER','DALER']},
@@ -266,11 +302,12 @@ let currentPuzzle = null;
 let isArchiveMode = false;
 let tiles = [];
 let selected = [];
-let mistakes = 4;
+let mistakes = 0;
 let solved = [];
 let elapsed = 0;
 let timerInterval = null;
 let myTs = null;
+let guessHistory = [];
 
 async function lbGet() {
   try { const r = await window.storage.get(LB_KEY, true); return r ? JSON.parse(r.value) : []; } catch { return []; }
@@ -335,9 +372,9 @@ function startArchiveGame(puzzle) {
 function loadPuzzle(groups) {
   currentPuzzle = groups;
   tiles = [...groups.flatMap(g => g.words)];
-  selected = []; mistakes = 4; solved = []; elapsed = 0; myTs = null;
+  selected = []; mistakes = 0; solved = []; elapsed = 0; myTs = null;
   clearInterval(timerInterval);
-  for (let i = 1; i <= 4; i++) document.getElementById('d'+i).classList.remove('used');
+  document.getElementById('feilTeller').textContent = 'Feil: 0';
   document.getElementById('solvedArea').innerHTML = '';
   document.getElementById('msg').textContent = '';
   document.getElementById('guessBtn').disabled = true;
@@ -374,17 +411,20 @@ function doGuess() {
   const grp = currentPuzzle.find(g => g.words.every(w => selected.includes(w)) && selected.every(w => g.words.includes(w)));
   if (grp) {
     solved.push(...grp.words); tiles = tiles.filter(w => !grp.words.includes(w));
+    guessHistory.push({correct: true, group: grp});
     showSolvedCard(grp); selected = []; renderGrid();
     document.getElementById('guessBtn').disabled = true;
     setMsg('Riktig! ✓');
     if (solved.length === 16) setTimeout(finishGame, 500);
   } else {
     const oneAway = currentPuzzle.some(g => g.words.filter(w => selected.includes(w)).length === 3);
-    mistakes--; updateDots();
+    const snapSelected = [...selected];
+    guessHistory.push({correct: false, selected: snapSelected});
+    mistakes++;
+    document.getElementById('feilTeller').textContent = 'Feil: ' + mistakes;
     document.querySelectorAll('.tile.selected').forEach(t => { t.classList.add('shake'); setTimeout(() => t.classList.remove('shake'), 450); });
     setTimeout(() => clearSel(), 120);
-    if (mistakes === 0) { setMsg('Ingen forsøk igjen!'); setTimeout(finishGame, 800); }
-    else setMsg(oneAway ? 'Én unna — prøv igjen!' : 'Feil. Prøv igjen.');
+    setMsg(oneAway ? 'Én unna — prøv igjen!' : 'Feil. Prøv igjen.');
   }
 }
 
@@ -395,13 +435,54 @@ function showSolvedCard(g) {
   document.getElementById('solvedArea').appendChild(el);
 }
 
-function updateDots() { for (let i=1; i<=4; i++) { if (i > mistakes) document.getElementById('d'+i).classList.add('used'); } }
 function setMsg(t) { const el = document.getElementById('msg'); el.textContent = t; setTimeout(() => { if (el.textContent === t) el.textContent = ''; }, 2500); }
+
+const COLOR_EMOJI = {'#f9df6d':'🟡','#a0c35a':'🟢','#b0c4ef':'🔵','#ba81c5':'🟣'};
 
 async function finishGame() {
   clearInterval(timerInterval);
-  const feil = 4 - mistakes;
+  const feil = mistakes;
   const won = solved.length === 16;
+
+  // Build summary screen
+  document.getElementById('summaryTitle').textContent = won ? 'Bra jobbet! 🎉' : 'Bedre lykke neste gang';
+  document.getElementById('summarySub').textContent = won
+    ? `Du fullførte på ${fmt(elapsed)} med ${feil} feil.`
+    : `Du fikk ${solved.length/4} av 4 grupper.`;
+
+  // Emoji grid
+  const grid = document.getElementById('emojiGrid');
+  grid.innerHTML = '';
+  guessHistory.forEach(g => {
+    const row = document.createElement('div'); row.className = 'emoji-row';
+    if (g.correct) {
+      for (let i = 0; i < 4; i++) {
+        const s = document.createElement('span');
+        s.textContent = COLOR_EMOJI[g.group.bg] || '⬜';
+        row.appendChild(s);
+      }
+    } else {
+      // For wrong guesses, show which group each word belongs to
+      g.selected.forEach(w => {
+        const grp = currentPuzzle.find(gr => gr.words.includes(w));
+        const s = document.createElement('span');
+        s.textContent = grp ? (COLOR_EMOJI[grp.bg] || '⬜') : '⬜';
+        row.appendChild(s);
+      });
+    }
+    grid.appendChild(row);
+  });
+
+  // Summary groups (all 4 in order)
+  const groups = document.getElementById('summaryGroups');
+  groups.innerHTML = currentPuzzle.map(g => `
+    <div class="summary-card" style="background:${g.bg}">
+      <div class="sc-label">${g.label}</div>
+      <div class="sc-cat">${g.cat}</div>
+      <div class="sc-words">${g.words.join(' · ')}</div>
+    </div>`).join('');
+
+  // Prepare result screen in background
   document.getElementById('resultTitle').textContent = won ? 'Bra jobbet! 🎉' : 'Bedre lykke neste gang';
   document.getElementById('rTime').textContent = fmt(elapsed);
   document.getElementById('rFeil').textContent = feil;
@@ -425,18 +506,34 @@ async function finishGame() {
     document.getElementById('resultSub').textContent = won ? `Du fullførte på ${fmt(elapsed)} med ${feil} feil.` : `Du fikk ${solved.length/4} av 4 grupper.`;
     renderLB(lb, myTs, 'leaderboard');
   }
+
+  show('summaryScreen');
+}
+
+function showResult() {
   show('resultScreen');
 }
 
+function rankEmoji(i) {
+  return i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : (i+1)+'';
+}
+function rankClass(i) {
+  return i === 0 ? 'top1' : i === 1 ? 'top2' : i === 2 ? 'top3' : '';
+}
 function renderLB(lb, ts, containerId) {
   const el = document.getElementById(containerId);
-  if (!lb.length) { el.innerHTML = '<p style="font-size:14px;color:var(--muted)">Ingen resultater ennå.</p>'; return; }
-  let html = '<table class="lb">';
+  if (!lb.length) { el.innerHTML = '<div style="padding:1rem;font-size:14px;color:var(--muted);text-align:center">Ingen resultater ennå.</div>'; return; }
+  let html = '';
   lb.slice(0,20).forEach((e,i) => {
     const me = e.ts === ts;
-    html += `<tr${me?' class="me"':''}><td class="rank">${i+1}</td><td class="lname">${esc(e.name)}</td><td class="ltime">${fmt(e.time)}</td><td class="lfeil">${e.feil} feil</td></tr>`;
+    html += `<div class="lb-row${me?' me':''}">
+      <span class="lb-rank ${rankClass(i)}">${rankEmoji(i)}</span>
+      <span class="lb-name">${esc(e.name)}</span>
+      <span class="lb-time">${fmt(e.time)}</span>
+      <span class="lb-feil" style="text-align:right">${e.feil} feil</span>
+    </div>`;
   });
-  html += '</table>'; el.innerHTML = html;
+  el.innerHTML = html;
 }
 
 async function renderDoneBoard() {
