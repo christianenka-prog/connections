@@ -322,11 +322,22 @@ let timerInterval = null;
 let myTs = null;
 let guessHistory = [];
 
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyF25I83R0ksNh0bhYvqIa7VmSim7Qke67etgMwZ0FRjjb5m1tZAdlt_5IMQSI3I-SR/exec';
+
 async function lbGet() {
-  try { const r = await window.storage.get(LB_KEY, true); return r ? JSON.parse(r.value) : []; } catch { return []; }
+  try {
+    const r = await fetch(SCRIPT_URL + '?key=' + LB_KEY);
+    return await r.json();
+  } catch { return []; }
 }
-async function lbSet(data) {
-  try { await window.storage.set(LB_KEY, JSON.stringify(data), true); } catch {}
+
+async function lbSet(entry) {
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({...entry, key: LB_KEY}),
+    });
+  } catch {}
 }
 
 function show(id) {
@@ -509,10 +520,9 @@ async function finishGame() {
     localStorage.setItem(LS_PLAYED, '1');
     localStorage.setItem(LS_NAME, playerName);
     myTs = Date.now();
+    const entry = { name: playerName, time: elapsed, feil, ts: myTs };
+    await lbSet(entry);
     let lb = await lbGet();
-    lb.push({ name: playerName, time: elapsed, feil, ts: myTs });
-    lb.sort((a,b) => a.feil !== b.feil ? a.feil-b.feil : a.time-b.time);
-    await lbSet(lb);
     const rank = lb.findIndex(e => e.ts === myTs) + 1;
     document.getElementById('rRank').textContent = '#' + rank;
     document.getElementById('lbTitle').style.display = '';
