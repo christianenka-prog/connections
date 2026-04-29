@@ -203,6 +203,7 @@
   <div class="err" id="loginErr"></div>
   <div class="divider">eller</div>
   <button class="archive-btn" onclick="show('archiveScreen')">📂 Se tidligere nøtter</button>
+  <button class="archive-btn" style="margin-top:8px" onclick="showPublicLB()">🏆 Se resultatlisten</button>
 </div>
 
 <!-- ARCHIVE -->
@@ -211,6 +212,18 @@
   <h2>Tidligere nøtter</h2>
   <p class="arch-sub">Spill gamle nøtter for moro skyld — teller ikke på scoreboardet.</p>
   <div class="archive-list" id="archiveList"></div>
+</div>
+
+
+<!-- SCOREBOARD -->
+<div id="scoreboardScreen" class="screen">
+  <button class="back-btn" onclick="show('loginScreen')">← Tilbake</button>
+  <h2>Resultatliste</h2>
+  <p class="arch-sub">Oversikt over alle som har spilt ukens nøtt.</p>
+  <div class="lb-wrap" style="margin-top:1rem">
+    <div class="lb-head"><span>#</span><span>Navn</span><span>Tid</span><span style="text-align:right">Feil</span></div>
+    <div id="publicLeaderboard"></div>
+  </div>
 </div>
 
 <!-- ALREADY PLAYED -->
@@ -546,6 +559,26 @@ async function renderDoneBoard() {
     html += `<tr${me?' class="me"':''}><td class="rank">${i+1}</td><td class="lname">${esc(e.name)}</td><td class="ltime">${fmt(e.time)}</td><td class="lfeil">${e.feil} feil</td></tr>`;
   });
   html += '</table>'; el.innerHTML = html;
+}
+
+async function showPublicLB() {
+  const lb = await lbGet();
+  const el = document.getElementById('publicLeaderboard');
+  if (!lb.length) {
+    el.innerHTML = '<div style="padding:1rem;font-size:14px;color:var(--muted);text-align:center">Ingen har spilt ennå.</div>';
+  } else {
+    let html = '';
+    lb.slice(0,20).forEach((e,i) => {
+      html += `<div class="lb-row">
+        <span class="lb-rank ${rankClass(i)}">${rankEmoji(i)}</span>
+        <span class="lb-name">${esc(e.name)}</span>
+        <span class="lb-time">${fmt(e.time)}</span>
+        <span class="lb-feil" style="text-align:right">${e.feil} feil</span>
+      </div>`;
+    });
+    el.innerHTML = html;
+  }
+  show('scoreboardScreen');
 }
 
 function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
